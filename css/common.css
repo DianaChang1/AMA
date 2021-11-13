@@ -1,0 +1,418 @@
+/*-------------------reset--------------------*/
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    /*outline: 1px solid red;*/
+}
+body{
+    font-family: 'Arial',"Microsoft JhengHei";
+    font-size: 15px;
+    line-height: 2;
+    font-weight: bold;
+    color:#2d2c2b;
+}
+.clearfix{
+    clear:both
+}
+a{
+    text-decoration: none;
+}
+
+.outpa{
+    padding: 50px 30px;
+}
+@media screen and (min-width: 768px){
+    .outpa{
+        padding: 50px 0 60px;
+    }
+}
+@media screen and (min-width: 1600px){
+    .outpa{
+        padding: 70px 0 80px;
+    }
+}
+/*------------------grid----------------------*/
+
+.row{
+	margin-left: -8px;
+	margin-right: -8px;
+}
+.container:after,
+.row:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.col-1{ width: 8.333333%;}
+.col-2{ width: 16.666666%;}
+.col-3{ width: 25%;}
+.col-4{ width: 33.333333%;}
+.col-5{ width: 41.666666%;}
+.col-6{ width: 50%;}
+.col-7{ width: 58.333333%;}
+.col-8{ width: 66.666666%;}
+.col-9{ width: 75%;}
+.col-10{ width: 83.333333%;}
+.col-11{ width: 91.666666%;}
+.col-12{ width: 100%;}
+
+@media screen and (min-width: 768px){
+	 .col-md-1{ width: 8.333333%;}
+	 .col-md-2{ width: 16.666666%;}
+	 .col-md-3{ width: 25%;}
+	 .col-md-4{ width: 33.333333%;}
+	 .col-md-5{ width: 41.666666%;}
+	 .col-md-6{ width: 50%;}
+	 .col-md-7{ width: 58.333333%;}
+	 .col-md-8{ width: 66.666666%;}
+	 .col-md-9{ width: 75%;}
+	.col-md-10{ width: 83.333333%;}
+	.col-md-11{ width: 91.666666%;}
+	.col-md-12{ width: 100%;}	
+}
+@media screen and (min-width: 992px){
+	 .col-lg-1{ width: 8.333333%;}
+	 .col-lg-2{ width: 16.666666%;}
+	 .col-lg-3{ width: 25%;}
+	 .col-lg-4{ width: 33.333333%;}
+	 .col-lg-5{ width: 41.666666%;}
+	 .col-lg-6{ width: 50%;}
+	 .col-lg-7{ width: 58.333333%;}
+	 .col-lg-8{ width: 66.666666%;}
+	 .col-lg-9{ width: 75%;}
+	.col-lg-10{ width: 83.333333%;}
+	.col-lg-11{ width: 91.666666%;}
+	.col-lg-12{ width: 100%;}	
+}
+@media screen and (min-width: 1200px){
+	 .col-xl-1{ width: 8.333333%;}
+	 .col-xl-2{ width: 16.666666%;}
+	 .col-xl-3{ width: 25%;}
+	 .col-xl-4{ width: 33.333333%;}
+	 .col-xl-5{ width: 41.666666%;}
+	 .col-xl-6{ width: 50%;}
+	 .col-xl-7{ width: 58.333333%;}
+	 .col-xl-8{ width: 66.666666%;}
+	 .col-xl-9{ width: 75%;}
+	.col-xl-10{ width: 83.333333%;}
+	.col-xl-11{ width: 91.666666%;}
+	.col-xl-12{ width: 100%;}	
+}
+		
+/*-------------------header--------------------*/
+header{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #f4c362;
+    z-index: 999;/*父影響menu打開時能不能遮擋底下內容定位的關鍵*/
+}
+
+header>a{
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    width: 150px;
+    height: 119px;
+    border-radius:50%;
+    left:50%;
+    top:-30px;
+    transform: translate(-50%);
+    box-shadow:0px 0px 10px rgba(0,0,0,0.3);
+    z-index:99 ;
+}
+#menuCheck{
+    display: none;
+}
+
+.menuClick{
+    display: block;
+    width: 40px;
+    height: 100%;/*沒有撐開hedaer的話menuCheck會跑上來*/
+    position: relative;
+    margin-left: auto;
+
+}
+.menuClick span{
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 25px;
+    height: 3px;
+    background-color:#fff;
+    margin: 0 auto;
+    border-radius: 5px; 
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+.menuClick span:nth-child(1){
+    top: 19px;
+}
+.menuClick span:nth-child(2){
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.menuClick span:nth-child(3){
+    top: 39px;
+}
+.menuClick.active span:nth-child(1){ /*(39-19) / 2=10*/
+    transform:translateY(10px) rotate(45deg);/*translate +-合併到中間再轉45度成為x*/
+}
+.menuClick.active span:nth-child(2){
+    opacity: 0;
+}
+.menuClick.active span:nth-child(3){
+    transform:translateY(-10px) rotate(-45deg);
+}
+h1{
+    margin-top: 19px;
+    margin-left: 10px;
+}
+h1>img{
+    width: 100%;
+}
+#navMenu{
+    height: 100vh;
+    background-color: beige;
+    text-align: center;
+    padding: 60px 0;
+    line-height: 2;
+    position: relative;
+    right:-100%;
+    transition: right 1s;/*不要寫all 否則rwd後改變其他屬性也會有動畫*/
+}
+#menuCheck:checked+#navMenu{
+    right:0;
+}
+
+.navMenuUl{
+    margin-bottom: 20px;
+} 
+#navMenu li a{
+    padding: 10px;
+    display: block;
+    position:relative;
+    width: 200px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: inherit
+} 
+.navMenuUl>li>a:hover{
+    background-color: rgb(233, 233, 139);
+    border-radius:5px
+}
+.dropItem>a::after{
+    content:'';
+    display:none;
+    position:absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 7px 0 7px;
+    border-color: #2d2c2b transparent transparent transparent;
+    top:23px;
+    right:35px;
+
+}
+
+.dropItem >ul{
+    display:none;    
+}
+
+.headerIcon{
+    margin-bottom: 25px;
+}
+.headerIcon a{
+    display:inline-block;
+    width: 42px;
+    height: 37px;
+    margin-right: 5px;
+    overflow: hidden;
+
+}
+.headerIcon a:first-child{
+    background: url(../images/png/css_sprites.png) -10px -67px;  
+}
+.headerIcon a:first-child:hover{
+    background-position: -72px -10px;  
+}                   
+.fa{
+    color:black;
+    position: relative;
+    top:-4px;
+}
+.fa:hover{
+    color:#ffaa00;
+}
+@media screen and (min-width: 768px){
+    .menuClick{
+        display: none;
+    }
+    #navMenu{
+        height: 100%;
+        padding: 0;
+        right:0;
+        transition: none;
+        background-color: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      
+    }
+    #navMenu>img{
+        display: none
+    }
+   
+    .navMenuUl{
+        overflow: hidden;
+        margin-bottom: 0;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    #navMenu li a{
+        color:#fff;
+        padding: 0px;
+        width: 100px;
+        margin: 0;
+        font-size: 17px;
+    } 
+    #navMenu li a:hover{
+        background-color:#ffaa00;
+    }
+    
+    .navMenuUl>li:nth-child(2){
+        margin-right: 194px;
+    }
+    #navMenu .dropItem>a{
+        padding-right: 8px;
+    }
+    .dropItem>a::after {
+        border-width: 8px 5px 0 5px;
+        top: 12px;
+        right: 5px;
+        border-top-color: #fff;
+        
+    }
+    .headerIcon{
+        margin-bottom: 0;
+    }
+    .navMenuUl>li{
+        float: left;
+    } 
+    .headerIcon a:first-child {
+        background-position:-134px -10px;
+    }
+    .headerIcon a:first-child:hover {
+        background-position:-134px -57px;
+    }   
+    .headerIcon a:last-child {
+        margin-right: 10px;
+    }
+    .headerIcon a{
+        width: 31px;
+        height: 27px;
+    }
+    .fa{
+        font-size: 30px;
+        top:0;
+        color:#fff;
+    }
+
+}
+@media screen and (min-width: 1200px){
+   
+    header{
+        height: 70px;
+    }
+    header>a{
+        width: 202px;
+        height: 181px;
+        top:-70px;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+    }
+    h1{
+        margin-top: 47px;
+    }
+     .navMenuUl>li:nth-child(2){
+        margin-right: 242px;
+    }
+    #navMenu li a{
+        font-size: 18px;
+    } 
+    .dropItem>a::after {
+        top: 14px;
+    }
+    .headerIcon a:last-child {
+        margin-right: 50px;
+    }
+}
+
+/*-------------------index footer--------------------*/
+footer {
+    background-color:#e49b0a;
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+    z-index: 1;
+
+}
+footer>a{
+       color:#2d2c2b;
+       display: block;
+}
+footer h1{
+    margin: 0 0 8px  0;
+
+}
+footer:before{
+    content:'';
+    display: block;
+    position: absolute;
+    background: url(../images/png/footerbg2.png) no-repeat left;
+    height: 96px;
+    width: 100%;
+    top:-49px;
+    left: 0;
+    z-index: -1
+}
+footer ul{
+    margin-bottom: 8px
+}
+footer li {
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px;
+    padding: 5px;
+}
+footer li:after {
+    content: '';
+    height: 5px;
+    border-right: 1px solid black;
+    margin-left: 10px;
+}
+.footicon>a{
+    margin-right: 10px;
+}
+@media screen and (min-width: 768px){
+    footer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center
+    }
+}
+@media screen and (min-width: 1200px){
+    footer{
+        padding:0 0 10px 0;
+    }
+    footer:before{
+        height: 113px;
+        top: -81px;
+    }
+}
